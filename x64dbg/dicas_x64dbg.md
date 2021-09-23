@@ -21,12 +21,13 @@
 
 - **xAnalyzer:** Adiciona referências às strings na aba CPU.
 
-----------------------------------------------
+----------------------------------------------------------------
 
 ### Símbolos
 
 Lembre-se de verificar qual é o módulo que você está visualizando. Para seguir para o módulo desejado, vá na aba 'Símbolos' e procure pelo módulo desejado.
 
+----------------------------------------------------------------
 
 ### Pesquisar
 
