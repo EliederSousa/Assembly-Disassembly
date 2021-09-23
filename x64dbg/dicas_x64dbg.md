@@ -1,5 +1,6 @@
-## Dicas x64dbg
-
+# Dicas x64dbg
+ 
+ 
 ### Plugins MUST HAVE (encontre-os na pasta plugins_backup):
 
 - **MapoAnalyzer:** Para achar as funções, strings, decompilar.  
@@ -19,3 +20,11 @@
 ![xFindOut](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/xFindOut/xfindout.png)
 
 - **xAnalyzer:** Adiciona referências às strings na aba CPU.
+
+----------------------------------------------
+
+### Pesquisar
+
+Ao pesquisar por uma instrução:
+- Não use 'h' após números em hexadecimal;
+- Não dê espaços entre operandos (após a vírgula);
