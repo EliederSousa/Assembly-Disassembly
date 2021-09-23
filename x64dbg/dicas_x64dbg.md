@@ -38,8 +38,8 @@ Ao pesquisar por uma instrução:
     ```
 - Instruções:
   - Tomar cuidado com instruções J encpntradas em diferentes programas. Exemplo:
-  ```assembly
-  jnz short loc_1400EB150      # IDA
-  jne nome_do_exe.1400EB150    # x64dbg
-  ```
+    ```assembly
+    jnz short loc_1400EB150      # IDA
+    jne nome_do_exe.1400EB150    # x64dbg
+    ```
   
