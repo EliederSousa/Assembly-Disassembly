@@ -23,6 +23,11 @@
 
 ----------------------------------------------
 
+### Símbolos
+
+Lembre-se de verificar qual é o módulo que você está visualizando. Para seguir para o módulo desejado, vá na aba 'Símbolos' e procure pelo módulo desejado.
+
+
 ### Pesquisar
 
 Ao pesquisar por uma instrução:
@@ -47,4 +52,8 @@ Ao pesquisar por uma instrução:
     jnz short loc_1400EB150      # IDA
     jne nome_do_exe.1400EB150    # x64dbg
     ```
-  
+- Codecaves:
+  - Para pesquisar um local adequado para um *codecave*, verifique se o local é apropriado (fim do segmento .text).
+  - Pesquisar por padrões (CTRL+B) pode ser útil, usando:
+    - *00* como pesquisa de locais sem instruções (*add byte ptr ds:[rax], al*)
+    - *90* para pesquisar locais com a instrução *NOP*.
