@@ -1,10 +1,10 @@
 ## Dicas x64dbg
 
-### Plugins MUST HAVE:
+### Plugins MUST HAVE (encontre-os na pasta plugins_backup):
 
 - **MapoAnalyzer:** Para achar as funções, strings, decompilar.  
 
-![MapoAnalyzer]( link )
+![MapoAnalyzer](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/MapoAnalyzer/mapo.png)
 
 - **ASLR Removal:**	"Address space layout randomization (ASLR) é uma técnica de segurança da informação que previne ataques de execução arbitrária de código." O plugin remove essa proteção. 
  
@@ -14,10 +14,8 @@
 
 ![Claw Search](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/ClawSearch/claw.png)
 
-- **Strings:** Adiciona referências às strings na aba CPU.  
-
-![Strings]( link )
-
 - **XFindOut:** Permite encontrar o que acessa/escreve em um endereço particular da memória.  
 
 ![xFindOut](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/xFindOut/xfindout.png)
+
+- **xAnalyzer:** Adiciona referências às strings na aba CPU.
