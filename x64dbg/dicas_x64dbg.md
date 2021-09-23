@@ -6,7 +6,7 @@
 ![MapoAnalyzer]( link )
 
 - **ASLR Removal:**	"Address space layout randomization (ASLR) é uma técnica de segurança da informação que previne ataques de execução arbitrária de código." O plugin remove essa proteção.  
-![ASLR Removal]( link )
+![ASLR Removal](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/ASLR_Removal/aslr.png)
 
 - **Claw Search:** Pesquisa por valores igual ao do Cheat Engine.  
 ![Claw Search](https://github.com/codecat/ClawSearch)
