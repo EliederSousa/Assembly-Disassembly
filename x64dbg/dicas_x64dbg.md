@@ -9,7 +9,7 @@
 ![ASLR Removal](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/ASLR_Removal/aslr.png)
 
 - **Claw Search:** Pesquisa por valores igual ao do Cheat Engine.  
-![Claw Search](https://github.com/codecat/ClawSearch)
+![Claw Search](https://github.com/EliederSousa/Engenharia-Reversa-Disassembly-/blob/main/x64dbg/plugins_backup/ClawSearch/claw.png)
 
 - **Strings:** Adiciona referências às strings na aba CPU.  
 ![Strings]( link )
