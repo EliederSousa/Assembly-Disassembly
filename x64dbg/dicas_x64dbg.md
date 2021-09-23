@@ -29,6 +29,11 @@ Ao pesquisar por uma instrução:
 - Valores numéricos:
   - Não use 'h' após números em hexadecimal;
   - Em valores *imediate*, pesquisar sempre em decimal;
+  - Exemplo:
+    ```assembly
+    cmp rcx,1Eh       # ao invés de pesquisar assim (IDA)
+    cmp rcx,30        # pesquise assim (x64dbg)
+    ```
 - Operandos:
   - Não dê espaços entre operandos (após a vírgula);
   - Tomar cuidado com dados a serem carregados. Exemplo: 
@@ -37,7 +42,7 @@ Ao pesquisar por uma instrução:
     movups xmmword ptr ds:[rax-6A88],xmm0    # x64dbg
     ```
 - Instruções:
-  - Tomar cuidado com instruções J encpntradas em diferentes programas. Exemplo:
+  - Tomar cuidado com instruções J encontradas em diferentes programas. Exemplo:
     ```assembly
     jnz short loc_1400EB150      # IDA
     jne nome_do_exe.1400EB150    # x64dbg
