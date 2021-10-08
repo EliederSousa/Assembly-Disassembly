@@ -1,10 +1,5 @@
-# Inicialização dos exercícios
+# InicializaÃ§Ã£o dos exercÃ­cios
 # Arquitetura de Computadores
-# Prof. Wilian F. Costa
-
-# Nome: Elieder Damasceno Sousa
-# TIA : 32093659
-# Turma: 03G11
 
 .data
 a:  .word 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
@@ -27,15 +22,15 @@ lw $t1, 0($s1)		 # $t1 = b         |--> Carregando os valores
 lw $t2, 0($s2)		 # $t2 = c     ----|
 
 sub $t0, $t1, $t2	 # a[1] = b - c
-sw $t0, 4($s0)		 # Guardando o valor no endereço a[1]
+sw $t0, 4($s0)		 # Guardando o valor no endereÃ§o a[1]
 
 lw $t3, 8($s0)           # $t3 = a[2]  --> Carregando o valor
 add $t1, $t3, $t2        # b = a[2] + c
-sw $t1, 8($s0)		 # Guardando o valor no endereço a[2]
+sw $t1, 8($s0)		 # Guardando o valor no endereÃ§o a[2]
 
 lw $t4, 12($s2)	   	 # $t4 = c[3]  --> Carregando o valor                       
 add $t2, $t1, $t4        # c = b + c[3]
-sw $t2, 12($s0)		 # Guardando o valor no endereço c[3]
+sw $t2, 12($s0)		 # Guardando o valor no endereÃ§o c[3]
 
 j DONE
 
@@ -45,6 +40,6 @@ L2:
 	lw $t2, 20($s0)  	# $t2 = a[5] ----|
 	
 	add $t0, $t1, $t2 	# a[4] = a[6] + a[5]
-	sw $t0, 16($s0) 	# Guardando o valor no endereço a[4]
+	sw $t0, 16($s0) 	# Guardando o valor no endereÃ§o a[4]
 
 DONE:
