@@ -1,0 +1,67 @@
+================================
+==      PART 1: 30 cars.      ==
+================================
+
+What you will need: 
+- Cheat Engine
+- IDA Freeware (yeah, it's really free)
+- Windows x64 RVGL release.
+- Android apk (libmain.so from x64 version).
+--- For this, extract the apk content (it's like a compressed file), and go to lib folder, x86_x64, libmain.so.
+
+Setup:
+- Open IDA, choose rvgl.exe, and wait the initial analysis. Do the same with libmain.so
+- Go to Debugger > Process Options > Parameters > paste this: -dev -nointro -window 680 390
+- The Windows x64 release DOESN'T come with symbol and function names; for easier work you will need:
+
+---- Maximum Number of Cars variable:
+- Found using Cheat Engine when we increase the value.
+- First, find the address that changes;
+- Find out what WRITES to this address;
+- Go to Memory Viewer at the currently instruction, there is something like this:
+
+rvgl.exe+1440F7 -> add eax, [rdx+10]
+rvgl.exe+1440FA -> mov r8d, 00000001
+rvgl.exe+144100 -> mov [rcx], eax		<== this is the instruction that writes
+rvgl.exe+144102 -> mov edx, [rdx+0C]
+
+- but our deal is with ( add eax, [rdx+0C] ). 
+- rdx=00662870, so rdx+0C=0066287C
+- Since de dereference operator [], [0066287C] is 10h, or 16 in decimal.
+- Open x64dbg, find this address, change to 1Eh, patch it. 
+
+
+---- RandomizeSingleRaceCars()
+- Found with "Can't alloc memory for car pick table", and a lot of tracing, breakpoints and debugging in IDA.
+- It's very hard to explain how I could found this. It was a trial and error method: set a breakpoint in a target function, start a race, see whats going on on that, restart (10, or 50 times).
+- Since I found that the while(1) loop at RandomizeSingleRaceCars() method runs forever when the number of cars is greater than 18, I forced the counter to make it stop, changing the address:
+
+00000000004498D4 mov ecx, r14d
+
+- This change modifies the register, so unespected results occurs. EBP and EBX is now empty, and we need fill them with the right values. This goes to most difficult part of the modification: making a codecave.
+
+---- Code caving
+- After moving r14d to ecx, we continue stepping over the code until it fails in the address 0044AE75. If we run the code with 16 cars, we can see that point holding:
+
+06A7F440 to ebx and
+016F6320 to ebp
+
+So, we need to put two instructions before it:
+
+mov ebx,06A7F440
+mov ebp,016F6320
+
+Assembly works like a Turing machine, we can't put instructions between instructions. We need to make a code cave. So, I found the address 0044AE6B, and create a jump to an empty space in .text segment (after all instructions and subroutines, I choosed 00659B6B). This jump (I think is 5 bytes lenght) deleted the code in next bytes, so I needed to copy the two instructions before making the jump. The jump in 0044AE6B is:
+
+0044AE6B jmp rvgl.659B6B
+
+In 00659B6B, I writed:
+
+mov ebx,rvgl.6A7F440
+mov ebp,rvgl.16F6320
+cmp byte ptr ss:[rbp+2F],0
+jne 0x44AFBA
+jmp 0x44AE70
+
+The cmp and jne instructions was the 2 that was deleted after creation of first jmp. The last jmp returns to the instruction 0044AE70, so the code continues normally. That's it!
+
