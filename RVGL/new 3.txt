@@ -1,0 +1,44 @@
+PLR_InitPlayers: (talvez não precisa mudar, pois só é usado para zerar)
+
+movups  xmmword ptr [rax-6A88h], xmm0
+cmp     edx, 1Eh
+jnz     short loc_1400EB150
+
+
+
+
+SetRaceData:
+
+mov     r9d, [r15+78h]
+cmp     dword ptr cs:start_data+4, 1Dh 	; start_data = 140B3BA60 
+lea     r13d, [r12+1]
+
+
+mov     r9d, eax
+cmp     dword ptr cs:start_data+4, 1Dh
+lea     r14d, [r12+1]
+jle     loc_14004EA60
+
+
+
+------------------
+Após aumentar a linked list, dá erro.
+2E0920 ; _QWORD off_1402E0920[30]
+.bss:00000001402E0920 off_1402E0920 dq offset unk_14A906C00, offset unk_14A992BC8, offset unk_14A964130, offset unk_14A91ABF8
+.bss:00000001402E0920                                         ; DATA XREF: CAI_CalcCarRacePositions+F3↑o
+.bss:00000001402E0920                                         ; CAI_CalcCarRacePositions+13A↑o
+.bss:00000001402E0920 dq offset unk_14A978128, offset unk_14A999670, offset off_14A8F2C08, offset unk_14A949690
+.bss:00000001402E0920 dq offset unk_14A956BE0, offset unk_14A950138, offset unk_14A928148, offset unk_14A98C120
+.bss:00000001402E0920 dq offset unk_14A93C140, offset unk_14A90D6A8, offset unk_14A971680, offset unk_14A985678
+.bss:00000001402E0920 dq offset unk_14A96ABD8, offset unk_14A914150, offset unk_14A9216A0, offset unk_14A8F96B0
+.bss:00000001402E0920 dq offset unk_14A92EBF0, offset unk_14A935698, offset unk_14A95D688, offset unk_14A97EBD0
+.bss:00000001402E0920 dq offset unk_14A942BE8, offset plr_player_list, offset unk_14A900158
+.bss:00000001402E0920 dq offset unk_14A9A6BC0, offset unk_14A9AD668, offset unk_14A9AD668
+
+
+verificar estes endereços de memória (CAI_CalcCarRacePositions).
+
+
+
+dar nop par contornar por enquanto:
+1400C54B8

@@ -1,0 +1,104 @@
+Como fazer patch no Android:
+
+Mudar os limites da UI:
+
+Pesquisar por "num_laps_slider":
+.data:0025CCB0 
+
+e "num_cars_slider":
+.data:0025CCC4
+
+
+Mudar os valores padrão máximo:
+
+Pesquisar pela função "GetProfileSettings";
+Dentro dela, haverá uma instrução do tipo
+if ( dword_ABD068 > 0 )
+    {
+      if ( dword_ABD068 > 16 ) // carros
+        dword_ABD068 = 16;
+    }
+    else
+    {
+      dword_ABD068 = 1;
+    }
+    if ( dword_ABD06C > 0 )
+    {
+      if ( dword_ABD06C > 255 ) // laps
+        dword_ABD06C = 255;
+    }
+	
+
+que em Assembly:
+.text:000A4A04                 CMP             R3, #0x10 // carros
+.text:000A4A08                 MOVGT           R3, #0x10
+
+o de voltas não precisa mexer, já está em 255.
+
+
+CAMERAS:
+
+Pesquisar na função "SetCameraFollow"
+
+v6 = (char *)&unk_23BA7C + 28 * a3; -> o que precisamos
+  *(_BYTE *)(a1 + 301) = 1;
+  v7 = *((_DWORD *)v6 + 4);
+  v8 = *((_DWORD *)v6 + 2);
+  v9 = *((_DWORD *)v6 + 3);
+  v10 = *((_DWORD *)v6 + 1);
+  
+que em Assembly:
+
+.text:000CACA8                 LDR             R2, =(unk_23BA7C - 0xCACC0)
+
+
+
+.rodata:0023BA7C unk_23BA7C      DCB    1   -> Aqui ficam os bytes que precisamos modificar!
+
+
+
+IDS dos Pickups:
+
+Pesquisar "FirePlayerWeapon"
+
+
+v5 = v2[42];
+  v6 = dword_23B94C[result]; // O que precisamos
+  v14 = v4;
+  v15 = v6 == 30;
+  v7 = CreateObject(v5 + 20, v5 + 84, v6, &v14);
+  
+  
+  
+
+.rodata:0023B94C dword_23B94C    DCD 0x12, 0x13, 0x13, 0x14, 0x15, 0x16, 0x18, 0x19, 0x1B
+
+
+CUP avançar chegando acima de 3º:
+
+Pesquisar por "MaintainChampionshipEndScreens"
+
+auseAllSfx();
+        SetSafeAllJoyForces();
+        SetCameraMouseMode(cam_main_camera);
+        PlaySfx(30, 100, 50, 44100, 10);
+        if ( *(int *)(plr_local_player + 21632) <= 2 )
+        {
+          championship_end_mode = 4;
+          dword_275A20 = 2;
+
+.text:00073B4C                 CMP             R3, #2
+
+
+
+
+OilSlickSize: 0x112B44 
+
+
+Fireworks:
+	- MAX TIME: 0x1182B0, 0x0011845c e 0x00118460
+	- TARGET MAX: 0x117920
+	
+	- Impulse 1: 0x1175A0
+	
+	- number of fireworks on a pack: 0x10C640

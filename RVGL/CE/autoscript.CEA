@@ -1,0 +1,64 @@
+[ENABLE]
+14A9AD678:
+dq 14A9B4AA8
+14a9b4aa8:
+dq 1e
+14a9b4ab0:
+dq 14a9ae028
+14a9b4ab8:
+dq 14a9bb528
+14a9bb528:
+dq 1f
+14a9bb530:
+dq 14a9b4aa8
+14a9bb538:
+dq 14a9c1fa8
+14a9c1fa8:
+dq 20
+14a9c1fb0:
+dq 14a9bb528
+14a9c1fb8:
+dq 14a9c8a28
+14a9c8a28:
+dq 21
+14a9c8a30:
+dq 14a9c1fa8
+14a9c8a38:
+dq 14a9cf4a8
+14a9cf4a8:
+dq 22
+14a9cf4b0:
+dq 14a9c8a28
+14a9cf4b8:
+dq 14a9d5f28
+[DISABLE]
+14a9b4aa8:
+dq 0
+14a9b4ab0:
+dq 0
+14a9b4ab8:
+dq 0
+14a9bb528:
+dq 0
+14a9bb530:
+dq 0
+14a9bb538:
+dq 0
+14a9c1fa8:
+dq 0
+14a9c1fb0:
+dq 0
+14a9c1fb8:
+dq 0
+14a9c8a28:
+dq 0
+14a9c8a30:
+dq 0
+14a9c8a38:
+dq 0
+14a9cf4a8:
+dq 0
+14a9cf4b0:
+dq 0
+14a9cf4b8:
+dq 0

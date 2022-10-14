@@ -1,0 +1,4 @@
+PLR_InitPlayers()
+.text:00000001400EB165 movups  xmmword ptr [rax-6A88h], xmm0
+.text:00000001400EB16C cmp     edx, 1Eh
+.text:00000001400EB16F jnz     short loc_1400EB150
